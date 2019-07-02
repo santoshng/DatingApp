@@ -1,4 +1,5 @@
-﻿using System.Buffers;
+﻿using System.Reflection;
+using System.Buffers;
 using System.Runtime.InteropServices.ComTypes;
 using System.Net;
 using System;
@@ -46,6 +47,7 @@ namespace DatingApp.API
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
             services.AddCors();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             // services.AddAutoMapper();
             // Auto Mapper Configurations
             var mappingConfig = new MapperConfiguration(mc =>
