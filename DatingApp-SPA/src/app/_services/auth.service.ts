@@ -1,6 +1,6 @@
 import { User } from 'src/app/_models/user';
 import { HttpClient } from '@angular/common/http';
-import {BehaviorSubject} from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -20,7 +20,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   changeMemberPhoto(photoUrl: string) {
-        this.photoUrl.next(photoUrl);
+    this.photoUrl.next(photoUrl);
   }
 
   login(model: any) {
@@ -37,8 +37,8 @@ export class AuthService {
       })
     );
   }
-  register(model: any) {
-    return this.http.post(this.baseUrl + 'register', model);
+  register(user: User) {
+    return this.http.post(this.baseUrl + 'register', user);
   }
 
   loggedIn() {
